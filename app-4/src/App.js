@@ -3,16 +3,32 @@ import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      userName: '',
+      password: ''
+    }
+    
+  
+  }
+  handleUserNameChange(e) {
+    this.setState({userName: e.target.value})
+  }
+  handlepasswordChange(e) {
+    this.setState({password: e.target.value})
+  }
+
+  
+  
+  
+  
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <input type = 'text' onChange = {(e) => this.handleUserNameChange(e)}/>
+        <input type = 'password' onChange = {(e) => this.handlepasswordChange (e)}/>
+        <button onClick = {(e) => alert('Username: ' + this.state.userName + 'Password: ' + this.state.password)} >Login</button>
       </div>
     );
   }
